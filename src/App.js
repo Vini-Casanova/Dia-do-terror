@@ -1,12 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import MovieList from './components/MovieList';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import MovieList from './pages/MovieList';
+import Header from './components/Header';
 
 function App() {
   return (
     <Router>
       <div>
+        <Header/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<MovieList />} />

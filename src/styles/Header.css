@@ -1,0 +1,21 @@
+header {
+    display: flex; /* Faz com que os elementos fiquem lado a lado */
+    justify-content: space-between; /* Alinha os elementos de acordo com o espaço disponível */
+    background-color: #333;
+    color: white;
+    padding: 1rem; /* Espaçamento interno */
+}
+
+nav ul { 
+    display: flex;
+    gap: 1rem; /* Espaçamento entre os itens do menu */
+}
+
+nav ul li {
+    display: inline; /* Removendo os pontos  da lista*/
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
