@@ -34,7 +34,8 @@ const Teste2 = () => {
     return (
         <>
             <div className="ticket-header">
-                                <p>Seus Ingressos:</p>
+                                
+                                <h1>Seus Ingressos:</h1>
                             </div>
             <div class="container">
                 {/* <div class="cover-flow"> */}
