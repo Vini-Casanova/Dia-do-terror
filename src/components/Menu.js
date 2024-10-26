@@ -12,7 +12,7 @@ const Menu = () => {
         <div class="menu-group">
           <div class="menu-item">
             <img
-              src="https://dummyimage.com/600x400/ccc/fff"
+              src="https://www.thursdaynightpizza.com/wp-content/uploads/2021/10/halloween-spider-web-pizza-featured-image.png"
               alt="Black Placeholder Image"
               class="menu-item-img"
             />
@@ -28,7 +28,7 @@ const Menu = () => {
           </div>
           <div class="menu-item">
             <img
-              src="https://dummyimage.com/600x400/000/fff"
+              src="https://www.jornalosemanario.com.br/wp-content/uploads/2020/10/Pizza-de-Halloween.jpg"
               alt="Black Placeholder Image"
               class="menu-item-img"
             />
@@ -44,7 +44,7 @@ const Menu = () => {
           </div>
           <div class="menu-item">
             <img
-              src="https://dummyimage.com/600x400/000/fff"
+              src="https://www.easycookingwithmolly.com/wp-content/uploads/2019/10/Witches-Blood-Brew-Cocktail-1-480x480.jpg"
               alt="Black Placeholder Image"
               class="menu-item-img"
             />
@@ -60,7 +60,7 @@ const Menu = () => {
           </div>
           <div class="menu-item">
             <img
-              src="https://dummyimage.com/600x400/ccc/fff"
+              src="https://img.freepik.com/fotos-premium/deliciosa-variedade-de-doces-de-halloween-guloseimas-assustadoras-para-doces-sustos_982554-1062.jpg"
               alt="Black Placeholder Image"
               class="menu-item-img"
             />

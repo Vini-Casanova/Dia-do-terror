@@ -65,7 +65,6 @@ body {
 }
 
 .home-page {
-  background-image: url('../assets/blood-bleeding.gif   ');
   background-size: cover; /* Ensures the background covers the entire page */
   background-position: center; /* Centers the background image */
   background-repeat: no-repeat; /* Prevents the background from repeating */
