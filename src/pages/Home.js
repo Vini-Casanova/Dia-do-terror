@@ -54,8 +54,8 @@ const Home = () => {
     <div className='home-page'>
       <div className='invite-container'>
         <Container>
-          <h1>Você foi convidado para o ultra Terror Day da Ferreira Pena!!!!!</h1>
-          <h2>Você confirma sua presença?</h2>
+        <h1>Você foi amaldiçoado para comparecer ao dia do terror!!!!!</h1>
+        <h2>Não aceitar seu destino é pior...</h2>
           <div className='buttons-container'>
             <Button onClick={routeChangeAceito}>
               Confirmo!
