@@ -8,6 +8,7 @@
 	box-sizing: border-box;
 }
 
+
 body {
 	background-color: black;
 	color: white;
@@ -19,7 +20,7 @@ body {
 	font-family: "Libre Franklin", sans-serif;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	/* justify-content: center; */
 	padding: 1rem;
 }
 

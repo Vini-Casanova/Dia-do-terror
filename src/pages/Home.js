@@ -8,11 +8,7 @@ const theme = {
   darkred: {
     default: "#8B0000",
     hover: "#CC1100",
-  },
-  orangered: {
-    default: "#CC1100",
-    hover: "#660000",
-  },
+  }
 };
 
 
@@ -61,7 +57,8 @@ const Home = () => {
         <h1>Voce foi convidado para o ultra Terror Day da Ferreira Pena!!!!!</h1>
         <h2>Voce confirma sua presença?</h2>
         <div class='buttons-container'>
-          <Button theme="orangered"
+          <Button
+            disabled
             onClick={routeChangeCredo}>
             Não credo
           </Button>

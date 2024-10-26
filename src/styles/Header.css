@@ -4,6 +4,11 @@ header {
     background-color: #333;
     color: white;
     padding: 1rem; /* Espaçamento interno */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the header stays above other content */
+    margin-bottom: 2rem; /* Espaçamento abaixo do header */
 }
 
 nav ul { 
