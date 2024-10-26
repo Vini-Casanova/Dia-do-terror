@@ -1,59 +1,56 @@
 import React from "react";
 import '../styles/Movies.css'
 import Menu from "../components/Menu";
+import FlipTicket from "../components/Ticket";
 
 const movies = [
     {
-        link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_pstiBncn1oI8_aLBNs8eAkLDPwS4Ff1ghrKLsYuZrlE0DN43x74OIi1KYMniqLL8iFY&usqp=CAU",
-        year: "1984",
-        title: "A Nightmare on Elm Street",
-        description: "Several young people in a small town regularly have nightmares in which they are chased by a man deformed by fire and wearing a glove ending in sharp blades."
+        link: "https://m.media-amazon.com/images/M/MV5BN2NkZWQyNzgtNGIzZC00YjFkLWFkZGQtNTU0OGI5ODYxODA1XkEyXkFqcGc@._V1_.jpg",
+        year: "1997",
+        title: "Funny Games",
+        description: `Two violent young men take a mother, father, and son hostage in their vacation cabin and force them to play sadistic "games" with one another for their own amusement.`,
+        front_ticket: "/funny_frente.svg",
+        back_ticket: "/funnygames_verso.svg"    
     },
     {
-        link: "https://upload.wikimedia.org/wikipedia/en/a/af/Halloween_%281978%29_theatrical_poster.jpg",
-        year: "1978",
-        title: "Halloween",
-        description: `Little Michael Myers murders his sister on Halloween night in 1963, for which
-					he is committed to a mental institution. Six years later, Myers escapes from the hospital and
-					returns to his hometown of Haddonfield, Illinois.`
+        link: "https://m.media-amazon.com/images/M/MV5BMGUyNmY5MGQtN2FjNC00MmY0LTk5NWMtYzZiMGYzNGMxYWEyXkEyXkFqcGc@._V1_.jpg",
+        year: "1974",
+        title: "Black Christmas",
+        description: `During their Christmas break, a group of sorority girls are stalked by a stranger.`,
+        front_ticket: "/Blackchristmas-frente.svg",
+        back_ticket: "/black_atras.svg"
     },
     {
-        link: "https://m.media-amazon.com/images/I/5109-e8TSyL.jpg",
-        year: "1996",
-        title: "Scream",
-        description: `A serial killer, wearing a mask and a black costume, spreads panic among the
-					teenagers of a Californian town.`
-    },
-    {
-        link: "https://filmartgallery.com/cdn/shop/files/Bram-Stokers-Dracula-Vintage-Movie-Poster-Original-1-Sheet-27x41_1024x1024.jpg?v=1698383228",
-        year: "1992",
-        title: "Bram Stoker's Dracula",
-        description: `Before becoming a vampire, Count Dracula was Prince Vlad who, upon learning
-					of the death of his beloved, sold his soul to the devil.`
+        link: "https://m.media-amazon.com/images/M/MV5BYTA3NDU5MWEtNTk4Yy00ZDNkLThmZTQtMjU3ZGVhYzAyMzU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        year: "1982",
+        title: "The Thing",
+        description: `A research team in Antarctica is hunted by a shape-shifting alien that assumes the appearance of its victims.`,
+        front_ticket: "/thething_frente.svg",
+        back_ticket: "/thething_verso.svg"
     }
 ]
 
 const Teste2 = () => {
     return (
         <>
-        <div class="container">
-            <div class="cover-flow">
-                {
-                    movies.map(poster => (
-                        <div class="movie-cover">
-                            <img src={poster.link} class="cover-img" alt={poster.title}/>
-                            <div class="movie-info">
-                                <p class="year">{poster.year}</p>
-                                <h2 class="title">{poster.title}</h2>
-                                <p class="description">{poster.description}</p>
+            <div className="ticket-header">
+                                <p>Seus Ingressos:</p>
                             </div>
-                        </div>
-                    )
-                    )
-                }
+            <div class="container">
+                {/* <div class="cover-flow"> */}
+                    {
+                        // movies.map(poster => (
+                        //     <>
+                        <FlipTicket tickets={movies} />
+                        //     </>
+                        // )
+                        // )
+                    }
+
+                {/* </div> */}
             </div>
-        </div>
-        <Menu/>
+
+            <Menu />
         </>
     );
 }

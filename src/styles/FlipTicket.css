@@ -1,0 +1,113 @@
+/* Container for the entire ticket and poster display */
+.ticket-display {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  /* Stacked tickets on the left side */
+  .ticket-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 1431px;
+    overflow-y: auto;
+  }
+  
+  /* Poster and details on the right side */
+  .poster-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 220px);
+    height: 700px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 10px;
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth transition for fade and slide */
+  }
+  
+  /* Fade-in and slide-in effect */
+  .fade-slide-in {
+    opacity: 1;
+    transform: translateX(0); /* Move back to original position */
+  }
+  
+  /* Fade-out and slide-out effect */
+  .fade-slide-out {
+    opacity: 0;
+    transform: translateX(-50px); /* Slide to the left */
+  }
+  
+  /* Placeholder when no ticket is hovered */
+  .placeholder {
+    color: #888;
+  }
+  
+  /* Poster image styling */
+  .poster-image {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* General ticket container */
+  .ticket-container {
+    cursor: pointer;
+    perspective: 1000px;
+    width: 600px;
+  }
+  
+  /* Ticket card styles */
+  .ticket-card {
+    position: relative;
+    width: 650px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  /* Flip effect on hover */
+  .ticket-container:hover .ticket-card {
+    transform: rotateY(180deg);
+  }
+  
+  /* Front and back sides of the ticket */
+  .ticket-front, .ticket-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+  }
+  
+  /* Front of the ticket */
+  .ticket-front {
+  }
+  
+  /* Back of the ticket */
+  .ticket-back {
+    background-color: black;
+    color: whitesmoke;
+    transform: rotateY(180deg);
+  }
+
+  /* Additional styling for SVG */
+.ticket-svg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adjust if needed */
+  }
+  
+  
