@@ -3,6 +3,7 @@ import "../styles/FlipTicket.css";
 
 const FlipTicket = ({ tickets }) => {
   const [selectedTicket, setSelectedTicket] = useState(null);
+  const [fadeIn, setFadeIn] = useState(false); // State to manage fade-in effect
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -21,13 +22,20 @@ const FlipTicket = ({ tickets }) => {
 
   const handleMouseEnter = (ticket) => {
     if (!isMobile) {
-      setSelectedTicket(ticket);
+      setFadeIn(false); // Start fade-out and slide-out
+      setTimeout(() => {
+        setSelectedTicket(ticket);
+        setFadeIn(true); // Start fade-in and slide-in after a brief delay
+      }, 200); // Delay to sync with fade-out and slide-out duration
     }
   };
 
   const handleMouseLeave = () => {
     if (!isMobile) {
-      setSelectedTicket(null);
+      setFadeIn(false);
+      setTimeout(() => {
+        setSelectedTicket(null);
+      }, 200);
     }
   };
 
@@ -62,17 +70,21 @@ const FlipTicket = ({ tickets }) => {
         ))}
       </div>
 
-      {selectedTicket && (
-        <div className="poster-display">
-          <img
-            src={selectedTicket.link}
-            alt="Poster"
-            className="poster-image"
-          />
-          <h2>{selectedTicket.title}</h2>
-          <p>{selectedTicket.description}</p>
-        </div>
-      )}
+      <div
+        className={`poster-display ${isMobile ? "" : fadeIn ? "fade-slide-in" : "fade-slide-out"}`}
+      >
+        {selectedTicket && (
+          <div className="poster-display">
+            <img
+              src={selectedTicket.link}
+              alt="Poster"
+              className="poster-image"
+            />
+            <h2>{selectedTicket.title}</h2>
+            <p>{selectedTicket.description}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
