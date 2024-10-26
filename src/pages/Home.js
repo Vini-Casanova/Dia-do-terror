@@ -66,7 +66,7 @@ const Home = () => {
       {/* Display the custom modal if showModal is true */}
       {showModal && (
         <StyledModal
-          message="Sábia escolha, seu acesso foi liberado"
+          message="Sábia escolha, seu acesso foi liberado!! Category is: irmãs da Wandinha"
           onClose={handleCloseModal}
         />
       )}
