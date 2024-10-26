@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container } from 'reactstrap';
-import '../styles/Home.css'
+import '../styles/Home.css';
 import styled from 'styled-components';
+import StyledModal from '../components/StyledModal'; // Import the custom modal component
 
 const theme = {
   darkred: {
@@ -11,14 +12,12 @@ const theme = {
   }
 };
 
-
-
 const Button = styled.button`
   background-color: ${(props) => theme[props.theme].default};
   color: white;
   padding: 20px 30px;
   font-family: "Berkshire Swash", serif;
-  font-size: 200px; 
+  font-size: 55px; 
   border-radius: 5px;
   outline: 0;
   border: 0; 
@@ -40,27 +39,37 @@ Button.defaultProps = {
 
 const Home = () => {
   let navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
   const routeChangeAceito = () => {
-    let path = `/movies`;
-    alert("Acesso liberado! \n Ingressos disponíveis a seguir")
-    navigate(path);
+    setShowModal(true); // Show the custom modal
+  }
+
+  const handleCloseModal = () => {
+    setShowModal(false); // Close the modal
+    navigate('/movies'); // Navigate to the movies page after closing the modal
   }
 
   return (
-    <div class='home-page'>
-      
-      <div class='invite-container'>
-      <Container>
-        <h1>Voce foi convidado para o ultra Terror Day da Ferreira Pena!!!!!</h1>
-        <h2>Voce confirma sua presença?</h2>
-        <div class='buttons-container'>
-          <Button
-            onClick={routeChangeAceito}>
-            Confirmo!
-          </Button>
-        </div>
-      </Container>
-    </div>
+    <div className='home-page'>
+      <div className='invite-container'>
+        <Container>
+          <h1>Você foi convidado para o ultra Terror Day da Ferreira Pena!!!!!</h1>
+          <h2>Você confirma sua presença?</h2>
+          <div className='buttons-container'>
+            <Button onClick={routeChangeAceito}>
+              Confirmo!
+            </Button>
+          </div>
+        </Container>
+      </div>
+      {/* Display the custom modal if showModal is true */}
+      {showModal && (
+        <StyledModal
+          message="Acesso liberado! Ingressos disponíveis a seguir"
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 };
