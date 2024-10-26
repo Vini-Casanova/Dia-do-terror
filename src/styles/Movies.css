@@ -9,6 +9,8 @@
 }
 
 
+
+
 .container {
 	width: 100%;
 	max-width: 64rem;
@@ -64,9 +66,10 @@
 
 .cover-flow {
 	display: flex;
-	gap: 1rem;
+	gap: 2rem;
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
+	height: 28vh;
 }
 
 .cover-img {
@@ -82,4 +85,10 @@
 		mask-image: linear-gradient(black 40%, transparent);
 		cursor: pointer;
 	}
+}
+
+.ticket-header{
+	margin: 0;
+  	padding-bottom: 1em;
+  	border-bottom: 2px solid #ccc;
 }
