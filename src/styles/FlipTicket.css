@@ -1,85 +1,88 @@
-/* Container for the entire ticket and poster display */
 .ticket-display {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    height: 100vh;
-  }
-  
-  /* Stacked tickets on the left side */
-  .ticket-list {
+    min-height: 100vh;
+}
+
+/* Stacked tickets on the left side */
+.ticket-list {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    width: 1431px;
+    width: 50%;
+    max-width: 650px;
     overflow-y: auto;
-  }
-  
-  /* Poster and details on the right side */
-  .poster-display {
+}
+
+/* Poster and details on the right side */
+.poster-display {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: calc(100% - 220px);
-    height: 700px;
+    width: 45%;
     padding: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     border-radius: 10px;
-    transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth transition for fade and slide */
-  }
-  
-  /* Fade-in and slide-in effect */
-  .fade-slide-in {
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+/* Fade-in and slide-in effect */
+.fade-slide-in {
     opacity: 1;
-    transform: translateX(0); /* Move back to original position */
-  }
-  
-  /* Fade-out and slide-out effect */
-  .fade-slide-out {
+    transform: translateX(0);
+}
+
+/* Fade-out and slide-out effect */
+.fade-slide-out {
     opacity: 0;
-    transform: translateX(-50px); /* Slide to the left */
-  }
-  
-  /* Placeholder when no ticket is hovered */
-  .placeholder {
+    transform: translateX(-50px);
+}
+
+/* Placeholder when no ticket is hovered */
+.placeholder {
     color: #888;
-  }
-  
-  /* Poster image styling */
-  .poster-image {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
+}
+
+/* Poster image styling */
+.poster-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
     margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* General ticket container */
-  .ticket-container {
+}
+
+/* General ticket container */
+.ticket-container {
     cursor: pointer;
     perspective: 1000px;
-    width: 600px;
-  }
-  
-  /* Ticket card styles */
-  .ticket-card {
+    width: 100%;
+}
+
+/* Ticket card styles */
+.ticket-card {
     position: relative;
-    width: 650px;
+    width: 100%;
     height: 200px;
     transform-style: preserve-3d;
     transition: transform 0.6s;
-  }
-  
-  /* Flip effect on hover */
-  .ticket-container:hover .ticket-card {
+}
+
+/* Flip effect on hover */
+.ticket-container:hover .ticket-card {
     transform: rotateY(180deg);
-  }
-  
-  /* Front and back sides of the ticket */
-  .ticket-front, .ticket-back {
+}
+
+/* Front and back sides of the ticket */
+.ticket-front,
+.ticket-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -90,24 +93,50 @@
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1rem;
-  }
-  
-  /* Front of the ticket */
-  .ticket-front {
-  }
-  
-  /* Back of the ticket */
-  .ticket-back {
+}
+
+/* Back of the ticket */
+.ticket-back {
     background-color: black;
     color: whitesmoke;
     transform: rotateY(180deg);
-  }
+}
 
-  /* Additional styling for SVG */
+/* Additional styling for SVG */
 .ticket-svg-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Adjust if needed */
-  }
-  
-  
+    object-fit: contain;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .ticket-display {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .ticket-list,
+    .poster-display {
+        width: 100%;
+        max-width: none;
+    }
+
+    .ticket-list {
+        gap: 20px;
+    }
+
+    .poster-display {
+        margin-top: 20px;
+        box-shadow: none;
+    }
+
+    .ticket-card {
+        height: 150px;
+    }
+
+    .ticket-front,
+    .ticket-back {
+        font-size: 0.9rem;
+    }
+}

@@ -1,63 +1,78 @@
-import React, { useState} from 'react';
-import '../styles/FlipTicket.css';
+import React, { useState, useEffect } from "react";
+import "../styles/FlipTicket.css";
 
 const FlipTicket = ({ tickets }) => {
-  const [hoveredTicket, setHoveredTicket] = useState(null); // State to store the hovered ticket details
-  const [fadeIn, setFadeIn] = useState(false); // State to manage fade-in effect
+  const [selectedTicket, setSelectedTicket] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // Handle hover enter
-  const handleMouseEnter = (ticket) => {
-    setFadeIn(false); // Start fade-out and slide-out
-    setTimeout(() => {
-      setHoveredTicket(ticket);
-      setFadeIn(true); // Start fade-in and slide-in after a brief delay
-    }, 200); // Delay to sync with fade-out and slide-out duration
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleTicketInteraction = (ticket) => {
+    if (isMobile) {
+      setSelectedTicket(selectedTicket === ticket ? null : ticket);
+    }
   };
 
-  // Handle hover leave
+  const handleMouseEnter = (ticket) => {
+    if (!isMobile) {
+      setSelectedTicket(ticket);
+    }
+  };
+
   const handleMouseLeave = () => {
-    setFadeIn(false);
-    setTimeout(() => {
-      setHoveredTicket(null);
-    }, 200);
+    if (!isMobile) {
+      setSelectedTicket(null);
+    }
   };
 
   return (
-    <div className="ticket-display">
+    <div className={`ticket-display ${isMobile ? "mobile" : ""}`}>
       <div className="ticket-list">
         {tickets.map((ticket, index) => (
           <div
             key={index}
-            className="ticket-container"
+            className={`ticket-container ${selectedTicket === ticket ? "selected" : ""}`}
+            onClick={() => handleTicketInteraction(ticket)}
             onMouseEnter={() => handleMouseEnter(ticket)}
             onMouseLeave={handleMouseLeave}
           >
             <div className="ticket-card">
               <div className="ticket-front">
-              <img src={ticket.front_ticket} alt="Ticket Front" className="ticket-svg-image" />
+                <img
+                  src={ticket.front_ticket}
+                  alt="Ticket Front"
+                  className="ticket-svg-image"
+                />
               </div>
               <div className="ticket-back">
-              <img src={ticket.back_ticket} alt="Ticket Front" className="ticket-svg-image" />
+                <img
+                  src={ticket.back_ticket}
+                  alt="Ticket Back"
+                  className="ticket-svg-image"
+                />
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Display the poster and details of the hovered ticket with fade and slide effect */}
-      <div className={`poster-display ${fadeIn ? 'fade-slide-in' : 'fade-slide-out'}`}>
-        {hoveredTicket ? (
-          <>
-            <img src={hoveredTicket.link} alt="Poster" className="poster-image" />
-            <h2>{hoveredTicket.title}</h2>
-            <p>{hoveredTicket.description}</p>
-          </>
-        ) : (
-          <div className="placeholder">
-            
-          </div>
-        )}
-      </div>
+      {selectedTicket && (
+        <div className="poster-display">
+          <img
+            src={selectedTicket.link}
+            alt="Poster"
+            className="poster-image"
+          />
+          <h2>{selectedTicket.title}</h2>
+          <p>{selectedTicket.description}</p>
+        </div>
+      )}
     </div>
   );
 };
