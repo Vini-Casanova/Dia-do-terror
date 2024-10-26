@@ -1,26 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import MovieList from './pages/MovieList';
-import Header from './components/Header';
-import VaiseFuder from './pages/VaiseFuder';
-import Teste2 from './pages/Teste2';
+import Teste2 from './pages/Movies';
 
 function App() {
+  
   return (
-    <Router>
-      <div>
-        <Header/>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/movies" element={<MovieList />} />
-            {/* <Route path="/naoaceito" element={<VaiseFuder/>} /> */}
-            <Route path="/naoaceito" element={<Teste2/>} />
-            {/* <Route path="*" element={<h1>Not Found</h1>} /> */}
-          </Routes>
-      </div>
-    </Router>
-  );
+    <>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+            <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet"/>
+            </head>
+            <Router>
+              <div>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/movies" element={<Teste2 />} />
+                </Routes>
+              </div>
+            </Router>
+          </>
+          );
 }
 
-export default App;
+          export default App;

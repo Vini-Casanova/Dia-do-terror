@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container } from 'reactstrap';
-import '../styles/Event.css'
+import '../styles/Home.css'
 import styled from 'styled-components';
 
 const theme = {
@@ -16,15 +16,14 @@ const theme = {
 const Button = styled.button`
   background-color: ${(props) => theme[props.theme].default};
   color: white;
-  padding: 20px 30px; 
-  font-size: 20px; 
+  padding: 20px 30px;
+  font-family: "Berkshire Swash", serif;
+  font-size: 200px; 
   border-radius: 5px;
   outline: 0;
   border: 0; 
-  text-transform: uppercase;
   margin: 10px 0px;
   cursor: pointer;
-  box-shadow: 0px 2px 2px lightgray;
   transition: ease background-color 250ms;
   &:hover {
     background-color: ${(props) => theme[props.theme].hover};
@@ -43,31 +42,25 @@ const Home = () => {
   let navigate = useNavigate();
   const routeChangeAceito = () => {
     let path = `/movies`;
-    navigate(path);
-  }
-
-  const routeChangeCredo = () => {
-    let path = `/naoaceito`;
+    alert("Acesso liberado! \n Ingressos disponíveis a seguir")
     navigate(path);
   }
 
   return (
-    <div class='invite-container'>
+    <div class='home-page'>
+      
+      <div class='invite-container'>
       <Container>
         <h1>Voce foi convidado para o ultra Terror Day da Ferreira Pena!!!!!</h1>
         <h2>Voce confirma sua presença?</h2>
         <div class='buttons-container'>
           <Button
-            disabled
-            onClick={routeChangeCredo}>
-            Não credo
-          </Button>
-          <Button
             onClick={routeChangeAceito}>
-            Aceitooooo
+            Confirmo!
           </Button>
         </div>
       </Container>
+    </div>
     </div>
   );
 };

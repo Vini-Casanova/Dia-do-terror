@@ -1,5 +1,6 @@
 import React from "react";
-import '../styles/Test2.css'
+import '../styles/Movies.css'
+import Menu from "../components/Menu";
 
 const movies = [
     {
@@ -34,6 +35,7 @@ const movies = [
 
 const Teste2 = () => {
     return (
+        <>
         <div class="container">
             <div class="cover-flow">
                 {
@@ -51,7 +53,12 @@ const Teste2 = () => {
                 }
             </div>
         </div>
+        <Menu/>
+        </>
     );
 }
 
 export default Teste2;
+
+
+// https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/4c335374aaec5abcb80cbf3f/Untitled1.png
